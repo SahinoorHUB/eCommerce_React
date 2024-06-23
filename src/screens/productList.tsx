@@ -30,13 +30,23 @@ const ProductList = () => {
   }, []);
   
 
-  function handleChange(event: ChangeEvent<HTMLSelectElement>): void { 
-    setCategoryParams({category: event.target.value}) 
+  function handleChange(event: ChangeEvent<HTMLSelectElement>): void {  
+    // setSearchParams({search: searchQuery ?? '', category: event.target.value})
+    setParams(event.target.value, 'category')
   } 
 
   const handleSearch = (text: string) => { 
-    setSearchParams( text !== '' ? { search: text } : {} )
+    // setSearchParams( text !== '' ? { search: text, category: categoryQuery ??'' } : {category: categoryQuery ??''} )
+    setParams(text, 'search')
   };
+
+
+  const setParams = (filterText: string, type: 'category' | 'search') => {
+    setSearchParams({
+      search: type === 'search' ? filterText : searchQuery ?? '', 
+      category: type === 'category' ? filterText : categoryQuery ?? ''
+    })
+  }
 
   
    
@@ -55,7 +65,7 @@ const ProductList = () => {
     }
     
     if (searchQuery && searchQuery !== '') {
-      _allProducts = allProducts.filter((product) =>
+      _allProducts = _allProducts.filter((product) =>
         product.title.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
@@ -65,7 +75,7 @@ const ProductList = () => {
 
 
   return (
-    <> 
+    <>  
     <div className="row py-3">
       <div className="row">
         <div className="col-4 mb-2">
@@ -105,7 +115,7 @@ const ProductList = () => {
       {isDataLoading && <div>Product is loading.....</div>}
 
       {hasAnyError ? "Something went wrong" : ""}
-    </div>
+    </div> 
     </>
   );
 };
