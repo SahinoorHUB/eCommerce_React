@@ -5,12 +5,8 @@ import ProductList from "./screens/productList";
 
 function App() {
   return (
-    <>
-      
-      <div className="container"> 
-      
-        <ProductList></ProductList>
-      </div>
+    <> 
+        <ProductList></ProductList> 
     </>
   );
 }

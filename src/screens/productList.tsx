@@ -9,11 +9,11 @@ import { useSearchParams } from "react-router-dom";
 const ProductList = () => {
   const [allProducts, setAllProducts] = useState<IProducts[]>([]);
   const [isDataLoading, setIsDataLoading] = useState(false);
-  const [hasAnyError, setHasAnyError] = useState(false); 
-  const [searchParams, setSearchParams] = useSearchParams(); 
-  const [categoryParams, setCategoryParams] = useSearchParams(); 
-  const searchQuery = searchParams.get('search');
-  const categoryQuery = categoryParams.get('category');
+  const [hasAnyError, setHasAnyError] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [categoryParams, setCategoryParams] = useSearchParams();
+  const searchQuery = searchParams.get("search");
+  const categoryQuery = categoryParams.get("category");
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -28,30 +28,26 @@ const ProductList = () => {
     };
     fetchProduct();
   }, []);
-  
 
-  function handleChange(event: ChangeEvent<HTMLSelectElement>): void {  
+  function handleChange(event: ChangeEvent<HTMLSelectElement>): void {
     // setSearchParams({search: searchQuery ?? '', category: event.target.value})
-    setParams(event.target.value, 'category')
-  } 
-
-  const handleSearch = (text: string) => { 
-    // setSearchParams( text !== '' ? { search: text, category: categoryQuery ??'' } : {category: categoryQuery ??''} )
-    setParams(text, 'search')
-  };
-
-
-  const setParams = (filterText: string, type: 'category' | 'search') => {
-    setSearchParams({
-      search: type === 'search' ? filterText : searchQuery ?? '', 
-      category: type === 'category' ? filterText : categoryQuery ?? ''
-    })
+    setParams(event.target.value, "category");
   }
 
-  
-   
-  const filterProduct = () => { 
-    let _allProducts = allProducts ? [...allProducts] : []; 
+  const handleSearch = (text: string) => {
+    // setSearchParams( text !== '' ? { search: text, category: categoryQuery ??'' } : {category: categoryQuery ??''} )
+    setParams(text, "search");
+  };
+
+  const setParams = (filterText: string, type: "category" | "search") => {
+    setSearchParams({
+      search: type === "search" ? filterText : searchQuery ?? "",
+      category: type === "category" ? filterText : categoryQuery ?? "",
+    });
+  };
+
+  const filterProduct = () => {
+    let _allProducts = allProducts ? [...allProducts] : [];
     if (!categoryQuery) {
       _allProducts = allProducts ? [...allProducts] : [];
     } else {
@@ -59,12 +55,12 @@ const ProductList = () => {
         _allProducts = _allProducts.filter(
           (each) => each.category === categoryQuery
         );
-      } else { 
+      } else {
         _allProducts = allProducts ? [...allProducts] : [];
       }
     }
-    
-    if (searchQuery && searchQuery !== '') {
+
+    if (searchQuery && searchQuery !== "") {
       _allProducts = _allProducts.filter((product) =>
         product.title.toLowerCase().includes(searchQuery.toLowerCase())
       );
@@ -72,50 +68,50 @@ const ProductList = () => {
     return _allProducts;
   };
 
-
-
   return (
-    <>  
-    <div className="row py-3">
-      <div className="row">
-        <div className="col-4 mb-2">
-          <select
-            value={ categoryQuery ?? undefined }
-            onChange={handleChange}
-            className="form-select form-select-md"
-          >
-            <option value="all">All Product</option>
-            <option value="electronics">Electronics</option>
-            <option value="jewelery">Jewelery</option>
-            <option value="men's clothing">Men's clothing</option>
-            <option value="women's clothing">Women's clothing</option>
-          </select>
-        </div>
-        <div className="col-8 mb-2">
-          <input
-            className="form-control"
-            type="text"
-            placeholder="Scerch Product by name.."
-            onChange={(e) => handleSearch(e.target.value)}
-            value={searchQuery ?? undefined}
-          />
-        </div>
-      </div>
-
-      <div className="row">
-        {filterProduct().map((item: any, index: number) => {
-          return (
-            <div className="col-2 my-2" key={index}>
-              <ProductCard allProductsItems={item}></ProductCard>
+    <>
+      <div className='container'>
+        <div className="row py-3">
+          <div className="row">
+            <div className="col-4 mb-2">
+              <select
+                value={categoryQuery ?? undefined}
+                onChange={handleChange}
+                className="form-select form-select-md"
+              >
+                <option value="all">All Product</option>
+                <option value="electronics">Electronics</option>
+                <option value="jewelery">Jewelery</option>
+                <option value="men's clothing">Men's clothing</option>
+                <option value="women's clothing">Women's clothing</option>
+              </select>
             </div>
-          );
-        })}
+            <div className="col-8 mb-2">
+              <input
+                className="form-control"
+                type="text"
+                placeholder="Scerch Product by name.."
+                onChange={(e) => handleSearch(e.target.value)}
+                value={searchQuery ?? undefined}
+              />
+            </div>
+          </div>
+
+          <div className="row">
+            {filterProduct().map((item: any, index: number) => {
+              return (
+                <div className="col-2 my-2" key={index}>
+                  <ProductCard allProductsItems={item}></ProductCard>
+                </div>
+              );
+            })}
+          </div>
+
+          {isDataLoading && <div>Product is loading.....</div>}
+
+          {hasAnyError ? "Something went wrong" : ""}
+        </div>
       </div>
-
-      {isDataLoading && <div>Product is loading.....</div>}
-
-      {hasAnyError ? "Something went wrong" : ""}
-    </div> 
     </>
   );
 };
