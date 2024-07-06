@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductService from "../services/product.service";
+import RatingShowing from "../component/rating/RatingShowing";
+import { IoIosCart } from 'react-icons/io';
 
 const ProductDetails = () => {
   const { product_id } = useParams();
@@ -25,9 +27,9 @@ const ProductDetails = () => {
   return (
     <>
       {getAllProductDetails && (
-        <div className="container main-singel-product">
+        <div className="container main-singel-product mb-5">
           <div className="row">
-            <div className="col-md-6 left-col">
+            <div className="col-md-6 ">
               <div id="container">
                 <img className="card-img-top peoductImageBig" src={getAllProductDetails.image} /> 
               </div>
@@ -35,6 +37,7 @@ const ProductDetails = () => {
             <div className="col-md-6">
               <h3 className="gapping-top">{getAllProductDetails.title}</h3>
               <p className="brand-list">Brand: {getAllProductDetails.category}</p>
+              <RatingShowing averageRating={Number(getAllProductDetails.rating.rate)} totalStars={5} fontSize={'20px'} fontSizeInfo={'15px'} />
               <p className="item-indicator">
                 <strong>About this item</strong>
               </p>
@@ -49,13 +52,13 @@ const ProductDetails = () => {
               </div>
               <div className="three-button">
                 <div className="product-customize card-add">
-                  <div className="btn btn--sm morph">
-                    <i className="fas fa-cart-arrow-down"></i>
+                  <div className="btn btn-primary btn-sm btn-lg" style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                    <span className="addtocartIcon" style={{fontSize: '26px',  marginRight: '10px'}}> <IoIosCart></IoIosCart></span>
                     Add To Cart
                   </div>
                 </div>
                 <div className="btn-sm-2">
-                  <div className="btn btn--sm morph">
+                  <div className="btn btn-primary btn-sm btn-lg">
                     <i className="fas fa-heart"></i>
                     Add To Wishlist
                   </div>

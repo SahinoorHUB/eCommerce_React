@@ -1,0 +1,23 @@
+input.form-control-countIndicater {
+    height: 35px;
+    width: 77px;
+    margin: 0px 10px;
+    border: 2px solid #3b5d50;
+    border-radius: 10px;
+    text-align: center;
+}
+button.countIndicater {
+    height: 35px;
+    width: 35px;
+    padding: 5px 11px;
+    line-height: 0;
+    border: none;
+    background: #3b5d50;
+    font-weight: bolder;
+    color: white;
+    border-radius: 8px;
+}
+a.btn.btn-primary.btn-sm.removeCart {
+    padding: 4px 12px;
+    font-size: 12px;
+}
