@@ -6,6 +6,7 @@ export interface IProducts {
     category:    IProductCategory;
     image:       string;
     rating:      IProductRating;
+    product_id?: number;
 }
 
 export enum IProductCategory {

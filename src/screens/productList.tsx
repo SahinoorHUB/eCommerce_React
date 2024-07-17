@@ -98,10 +98,10 @@ const ProductList = () => {
           </div>
 
           <div className="row">
-            {filterProduct().map((item: any, index: number) => {
+            {filterProduct().map((item, index) => {
               return (
                 <div className="col-2 my-2" key={index}>
-                  <ProductCard allProductsItems={item}></ProductCard>
+                  <ProductCard product={item}  />
                 </div>
               );
             })}
