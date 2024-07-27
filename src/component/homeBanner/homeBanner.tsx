@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import './homeBanner.css';
 import { Link } from 'react-router-dom';
@@ -19,7 +20,7 @@ const HomeBanner = () => {
                     </div>
                     <div className="col-lg-7">
                         <div className="hero-img-wrap">
-                            <img src="https://i.ibb.co/8xFDVgK/81-Zt42io-Cg-L-AC-SX679-removebg-preview.png" className="img-fluid" />
+                            <img src="https://raw.githubusercontent.com/SahinoorHUB/eCommerce_React/main/src/assets/images/tv.png" className="img-fluid" />
                         </div>
                     </div>
                 </div>

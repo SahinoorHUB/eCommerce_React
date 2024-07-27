@@ -70,7 +70,7 @@ const ProductList = () => {
 
   return (
     <>
-      <div className='container'>
+      <div className="container">
         <div className="row py-3">
           <div className="row">
             <div className="col-4 mb-2">
@@ -101,13 +101,20 @@ const ProductList = () => {
             {filterProduct().map((item, index) => {
               return (
                 <div className="col-2 my-2" key={index}>
-                  <ProductCard product={item}  />
+                  <ProductCard product={item} />
                 </div>
               );
             })}
           </div>
 
-          {isDataLoading && <div>Product is loading.....</div>}
+          {isDataLoading && (
+            <div className="m-5">
+              <span className="loader"></span>
+              <h6 className="m-2" style={{ textAlign: "center" }}>
+                Product is loading.....
+              </h6>
+            </div>
+          )}
 
           {hasAnyError ? "Something went wrong" : ""}
         </div>

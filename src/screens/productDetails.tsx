@@ -12,9 +12,11 @@ const ProductDetails = () => {
   const { product_id } = useParams();
   const [getAllProductDetails, setAllProductDetails] = useState<any>(null);
   const { addToCart, items } = cartStore();
+  const [isDataLoading, setIsDataLoading] = useState(false);
 
   useEffect(() => {
     const fetchProduct = async () => {
+      setIsDataLoading(true);
       try {
         if (product_id) {
           const productDetails = await new ProductService().getSingleProduct(
@@ -23,6 +25,7 @@ const ProductDetails = () => {
           setAllProductDetails(productDetails);
         }
       } catch (error) {}
+      setIsDataLoading(false);
     };
     fetchProduct();
   }, [product_id]);
@@ -107,6 +110,15 @@ const ProductDetails = () => {
           </div>
         </div>
       )}
+
+        {isDataLoading && (
+            <div className="m-5">
+              <span className="loader"></span>
+              <h6 className="m-2" style={{ textAlign: "center" }}>
+                Details is loading.....
+              </h6>
+            </div>
+          )}
     </>
   );
 };
