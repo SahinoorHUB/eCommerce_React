@@ -93,8 +93,9 @@ const Cart = () => {
                 </div>
               )} 
               {items.length === 0 && (
-                <div className="m-4 mt-0">
-                  <div className="price-div"><span className="price-tag">NO CART ADDED</span></div>
+                <div className="m-4 mt-0" style={{textAlign: 'center'}}>
+                  <img src={'https://raw.githubusercontent.com/SahinoorHUB/eCommerce_React/main/src/assets/images/no-shopping-cart.png'} style={{ width: '90px', height: '90px', }} />
+                  <h5>NO CART ADDED</h5>
                 </div>
               )}
             </div>

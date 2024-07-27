@@ -34,10 +34,10 @@ const AppHeader = () => {
 					</ul>
 
 					<ul className="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-						<li><Link className="nav-link" to={''}><img src='https://i.ibb.co/QjgYY2C/user.png' /></Link></li>
+						<li><Link className="nav-link" to={''}><img src='https://raw.githubusercontent.com/SahinoorHUB/eCommerce_React/main/src/assets/images/user.png' /></Link></li>
 						<li>
 							<Link className="nav-link" to={'cartDetails'}>
-								<img src='https://i.ibb.co/qWFxxk0/cart.png' />
+								<img src='https://raw.githubusercontent.com/SahinoorHUB/eCommerce_React/main/src/assets/images/cart.png' />
 								{prevItems && prevItems.length > 0 && (
 									<span className="cart-count">{prevItems.length}</span>
 								)}
