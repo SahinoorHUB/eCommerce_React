@@ -33,17 +33,17 @@ const Cart = () => {
   // [4,5,6] // Error
 
  // [undefined, undefined, undefined, 4, 5, 6]
- const [getTotalAmount, setTotalAmount] = useState(0);
+  const [getTotalAmount, setTotalAmount] = useState(0);
  
- useEffect(() => {
-  const prices = items.map((product) => product.totalPrice)
-  console.log(prices)
-  const total = prices.reduce((accu, curr)=>{
-    return accu + curr;
-  }, 0);
-  console.log(total)
-  setTotalAmount(total)
- }, [items])
+  useEffect(() => {
+    const prices = items.map((product) => product.totalPrice)
+    console.log(prices)
+    const total = prices.reduce((accu, curr)=>{
+      return accu + curr;
+    }, 0);
+    console.log(total)
+    setTotalAmount(total)
+  }, [items])
  
 
   
