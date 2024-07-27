@@ -13,6 +13,27 @@ const Cart = () => {
     cartItemUpdate(product_id, 'R')
   }
 
+  // const arr = [1,2,3,4,5,6];
+
+  // let total = 0;
+  // arr.forEach(each => {
+  //   total = total + each;
+  // });
+
+  // console.log(total);
+  // const newTotla = arr.reduce((accu, curr)=>{
+  //   return accu + curr;
+  // }, 0);
+  
+  // console.log(newTotla);
+  
+  //const newArr = items
+  //console.log(newArr);
+  // [4,5,6] // Error
+
+ // [undefined, undefined, undefined, 4, 5, 6]
+  
+
   return (
     <div className='container mt-5 mb-4'>
       <div className='row'>

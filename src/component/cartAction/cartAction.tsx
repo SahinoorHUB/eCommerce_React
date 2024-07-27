@@ -24,7 +24,7 @@ const CartAction: FC<IProductCardAction> = ({ product_id }) => {
     return (
         <div className="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap">
             <button className="countIndicater" onClick={() => handleAddItemDesc()}>-</button>
-            <input type="number" className="form-control-countIndicater" value={isCurrentItemInCart()?.qty} />
+                <input type="number" className="form-control-countIndicater" value={isCurrentItemInCart()?.qty} readOnly />
             <button className="countIndicater" onClick={() => handleAddItemInc()}>+</button>
         </div>
     );
