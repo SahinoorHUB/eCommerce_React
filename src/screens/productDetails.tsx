@@ -7,6 +7,7 @@ import RatingShowing from "../component/rating/RatingShowing";
 import { IoIosCart } from "react-icons/io";
 import CartAction from "../component/cartAction/cartAction";
 import cartStore from "../store/cart.store";
+import Loader from "../component/loader/loader";
 
 const ProductDetails = () => {
   const { product_id } = useParams();
@@ -112,12 +113,7 @@ const ProductDetails = () => {
       )}
 
         {isDataLoading && (
-            <div className="m-5">
-              <span className="loader"></span>
-              <h6 className="m-2" style={{ textAlign: "center" }}>
-                Details is loading.....
-              </h6>
-            </div>
+            <Loader loaderText={'Details is loading.....'} />
           )}
     </>
   );
