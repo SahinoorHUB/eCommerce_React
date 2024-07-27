@@ -21,3 +21,8 @@ a.btn.btn-primary.btn-sm.removeCart {
     padding: 4px 12px;
     font-size: 12px;
 }
+.totalShow {
+    text-align: right;
+    border-top: 1px solid gray;
+    padding-top: 23px;
+}

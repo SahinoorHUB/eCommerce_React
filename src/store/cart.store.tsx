@@ -7,6 +7,7 @@ interface ICartItem {
     price: number;
     image_url: string;
     qty: number;
+    totalPrice: number;
 }
 
 interface ICart {
@@ -24,6 +25,7 @@ const useCartStore = create<ICart>((set, get) => ({
 
         if (getCurrentItemFromCart && action === 'I') {
             getCurrentItemFromCart.qty = getCurrentItemFromCart.qty + 1;
+            getCurrentItemFromCart.totalPrice = getCurrentItemFromCart.price * getCurrentItemFromCart.qty
         }
         else if (action === 'D' && getCurrentItemFromCart) {
             if (getCurrentItemFromCart?.qty === 1) {
@@ -31,7 +33,8 @@ const useCartStore = create<ICart>((set, get) => ({
             }
             else {
                 getCurrentItemFromCart.qty = getCurrentItemFromCart.qty - 1;
-            }
+            } 
+            getCurrentItemFromCart.totalPrice = getCurrentItemFromCart.price * getCurrentItemFromCart.qty
         } 
         else if(action === 'R') { 
             _items = _items.filter(eachCartItem => eachCartItem.product_id !== product_id) 
@@ -53,7 +56,8 @@ const useCartStore = create<ICart>((set, get) => ({
                 name: item.title,
                 price: item.price,
                 image_url: item.image,
-                qty: 1
+                qty: 1,
+                totalPrice:  item.price
             });
 
             set(() => ({
