@@ -2,12 +2,26 @@
 // File: ../components/AppFooter.js
 import React from "react";
 import "./appHeader.css"; // Import your CSS for styling
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import AutocompleteSearch from "../../../component/autocompleteSearch";
 import useStore from "../../../store/cart.store";
 
+const topNav = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Shop",
+    link: "/products",
+  },
+];
+
 const AppHeader = () => {
   const prevItems = useStore((state: any) => state.items);
+
+  const location = useLocation();
+  const currentPath = location.pathname; 
 
   return (
     <nav
@@ -15,7 +29,7 @@ const AppHeader = () => {
       arial-label="Furni navigation bar"
     >
       <div className="container">
-        <Link to={""} className="navbar-brand">
+        <Link to={"/"} className="navbar-brand">
           e-Cart <span>.</span>
         </Link>
         <div className="navbar-Search">
@@ -36,16 +50,15 @@ const AppHeader = () => {
 
         <div className="collapse navbar-collapse" id="navbarsFurni">
           <ul className="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-            <li className="nav-item active">
-              <Link to={"/"} className="nav-link">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link to={"/products"} className="nav-link">
-                Shop
-              </Link>
-            </li>
+            {topNav.map((item, index) => {
+              return (
+                <li className={item.link === currentPath ? 'active' : ''} key={index}>
+                  <Link to={item.link} className="nav-link">
+                    {item.name}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
 
           <ul className="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">

@@ -94,8 +94,8 @@ const Cart = () => {
               )} 
               {items.length === 0 && (
                 <div className="m-4 mt-0" style={{textAlign: 'center'}}>
-                  <img src={'https://raw.githubusercontent.com/SahinoorHUB/eCommerce_React/main/src/assets/images/no-shopping-cart.png'} style={{ width: '90px', height: '90px', }} />
-                  <h5>NO CART ADDED</h5>
+                  <img src={'https://raw.githubusercontent.com/SahinoorHUB/eCommerce_React/main/src/assets/images/no-shopping-cart.png'} style={{ width: '70px', height: '70px', }} />
+                  <h6>NO CART ADDED</h6>
                 </div>
               )}
             </div>

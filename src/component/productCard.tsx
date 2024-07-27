@@ -33,7 +33,7 @@ const ProductCard: FC<CProductCard> = ({ product }) => {
           </Link>
           <div className="card-body p-1">
             <p className="peoductTitle">{product.title}</p>
-            <RatingShowing averageRating={Number(product.rating.rate)} totalStars={5} fontSize={'16px'} fontSizeInfo={'13px'} />
+            <RatingShowing averageRating={Number(product.rating.rate)} totalStars={5} fontSize={'16px'} fontSizeInfo={'10px'} />
 
             {!isCurrentItemInCart() ? <button type="button" className="btn btn-primary btn-sm btn-lg" onClick={() => handleAddItem()}>
               Add to cart

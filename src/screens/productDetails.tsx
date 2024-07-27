@@ -54,7 +54,7 @@ const ProductDetails = () => {
                 />
               </div>
             </div>
-            <div className="col-md-6">
+            <div className="col-md-6" style={{textAlign: 'center'}}>
               <h3 className="gapping-top">{getAllProductDetails.title}</h3>
               <p className="brand-list">
                 Brand: {getAllProductDetails.category}

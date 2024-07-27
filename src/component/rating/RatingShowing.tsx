@@ -9,6 +9,7 @@ const RatingShowing = ({ averageRating = 0, totalStars = 5, fontSize = '16px', f
   
   return (
     <div className="rating-showing">
+      <div>
       {[...Array(totalStars)].map((star, index) => {
         const starValue = index + 1;
         if (starValue <= wholeStars) {
@@ -31,7 +32,8 @@ const RatingShowing = ({ averageRating = 0, totalStars = 5, fontSize = '16px', f
           );
         }
       })}
-      <span className="rating-text" style={{fontSize: fontSizeInfo}}>({averageRating.toFixed(1)} out of {totalStars})</span>
+      </div>
+      <span className="rating-text" style={{fontSize: fontSizeInfo ?? '10px'}}>({averageRating.toFixed(1)} out of {totalStars})</span>
     </div>
   );
 };
