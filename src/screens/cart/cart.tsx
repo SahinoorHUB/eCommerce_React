@@ -4,7 +4,7 @@
 import "./cart.css";
 import cartStore from "../../store/cart.store";
 import CartAction from "../../component/cartAction/cartAction";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
 const Cart = () => {
   const { cartItemUpdate, items } = cartStore();
@@ -88,7 +88,7 @@ const Cart = () => {
                       </div>
                       <div className="col-lg-2 col-sm-6 col-6 d-flex  justify-content-xl-end mb-2">
                         <div className="price-div">
-                          <span className="price-tag">₹{item.totalPrice}</span>
+                          <span className="price-tag">₹{item.totalPrice.toFixed(2)}</span>
                         </div>
                       </div>
                       <div className="col-lg-2 col-sm-6 d-flex  justify-content-xl-end mb-2">
@@ -109,11 +109,11 @@ const Cart = () => {
               {items && items.length > 0 && (
                 <div className="m-4 totalShow">
                   <div className="price-div">
-                    <span className="price-tag">
+                    <span className="price-tag" style={{ fontSize: "15px" }}>
                       TOTAL AMOUNT: ₹{" "}
                       {items.reduce((accu, curr) => {
                         return accu + curr.totalPrice;
-                      }, 0)}
+                      }, 0).toFixed(2)}
                     </span>
                   </div>
                 </div>
