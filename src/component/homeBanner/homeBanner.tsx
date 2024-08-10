@@ -2,7 +2,7 @@
 import React from 'react';
 import './homeBanner.css';
 import { Link } from 'react-router-dom';
-
+import tv from '../../assets/images/tv.png';
 const HomeBanner = () => {
     return (
         <div className="hero">
@@ -20,7 +20,7 @@ const HomeBanner = () => {
                     </div>
                     <div className="col-lg-7">
                         <div className="hero-img-wrap">
-                            <img src="https://raw.githubusercontent.com/SahinoorHUB/eCommerce_React/main/src/assets/images/tv.png" className="img-fluid" />
+                            <img src={tv} className="img-fluid" />
                         </div>
                     </div>
                 </div>

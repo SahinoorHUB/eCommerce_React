@@ -5,6 +5,7 @@ import "./cart.css";
 import cartStore from "../../store/cart.store";
 import CartAction from "../../component/cartAction/cartAction";
 // import { useEffect, useState } from "react";
+import noCart from "../../assets/images/no-shopping-cart.png"
 
 const Cart = () => {
   const { cartItemUpdate, items } = cartStore();
@@ -121,9 +122,7 @@ const Cart = () => {
               {items.length === 0 && (
                 <div className="m-4 mt-0" style={{ textAlign: "center" }}>
                   <img
-                    src={
-                      "https://raw.githubusercontent.com/SahinoorHUB/eCommerce_React/main/src/assets/images/no-shopping-cart.png"
-                    }
+                    src={noCart}
                     style={{ width: "70px", height: "70px" }}
                   />
                   <h6>NO CART ADDED</h6>
