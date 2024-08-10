@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { IProducts } from "../interfaces/product.interface";
+import { LOCAL_STORAGE_GET, LOCAL_STORAGE_SET, StorageData } from "../utiles/localStoreHendeler";
 
 interface ICartItem {
   product_id: number;
@@ -76,9 +77,9 @@ const useCartStore = create<ICart>((set, get) => ({
     }
   },
 
-  refreshCart: () => {
-    console.log("ABC")
-    const storeItems = localStorage.getItem("cartItems");
+  refreshCart: () => { 
+    const storeItems = localStorage.getItem("cartItems"); 
+    // const storeItems = LOCAL_STORAGE_GET(StorageData.CartItems) 
     if (storeItems) {
       const _items = JSON.parse(storeItems);
       set(() => ({
@@ -90,6 +91,7 @@ const useCartStore = create<ICart>((set, get) => ({
 
 const setLocalStorage = (item: ICartItem[]) => {
   localStorage.setItem("cartItems", JSON.stringify(item));
+  // LOCAL_STORAGE_SET(StorageData.CartItems, item)
 };
 
 export default useCartStore;

@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 // File: ../components/AppFooter.js
-import React from "react";
+import React, { useEffect } from "react";
 import "./appHeader.css"; // Import your CSS for styling
 import { Link, useLocation } from "react-router-dom";
 import AutocompleteSearch from "../../../component/autocompleteSearch";

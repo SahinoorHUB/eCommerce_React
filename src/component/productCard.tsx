@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import RatingShowing from "./rating/RatingShowing"; 
 import cartStore from "../store/cart.store";
 import CartAction from "./cartAction/cartAction";
+import authStore from "../store/auth.store";
 
 interface CProductCard {
   product: IProducts;
@@ -13,8 +14,10 @@ interface CProductCard {
 
 const ProductCard: FC<CProductCard> = ({ product }) => {
   const { addToCart, items } = cartStore();
+  const { isUserLoggedIn } = authStore();
 
   const handleAddItem = () => {
+    console.log(isUserLoggedIn)
     addToCart(product)
   };
 
