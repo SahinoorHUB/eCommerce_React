@@ -15,7 +15,8 @@ const authStore = create<IAuth>((set) => ({
     },
 
     updateLoginModalState: (state: boolean) => {
-        set({ showLoginModal: state });
+        // set({ showLoginModal: state });
+        set(() => ({ showLoginModal: state }));
     },
 }));
 

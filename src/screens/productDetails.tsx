@@ -87,14 +87,11 @@ const ProductDetails = () => {
                         display: "flex",
                         flexDirection: "row",
                         alignItems: "center",
-                        padding: "12px 21px"
+                        padding: "12px 21px",
                       }}
                       onClick={() => handleAddItem()}
                     >
-                      <span
-                        className="addtocartIcon"
-                        style={{ fontSize: "26px", marginRight: "10px" }}
-                      >
+                      <span className="addtocartIcon" style={{ fontSize: "26px", marginRight: "10px" }} >
                         {" "}
                         <IoIosCart></IoIosCart>
                       </span>
@@ -103,7 +100,7 @@ const ProductDetails = () => {
                   </div>
                 </div>
               ) : (
-                <div style={{marginTop: 17}}>
+                <div style={{ marginTop: 17 }}>
                   <CartAction product_id={getAllProductDetails.id} />
                 </div>
               )}
@@ -111,10 +108,7 @@ const ProductDetails = () => {
           </div>
         </div>
       )}
-
-        {isDataLoading && (
-            <Loader loaderText={'Details is loading.....'} />
-          )}
+      {isDataLoading && <Loader loaderText={"Details is loading....."} />}
     </>
   );
 };

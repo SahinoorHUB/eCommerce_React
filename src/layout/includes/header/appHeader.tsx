@@ -89,7 +89,7 @@ const AppHeader = () => {
       </nav>
 
       <Modal isOpen={showLoginModal} onClose={closeModal}>
-        <h2>Modal Content</h2>
+        <h5>Modal Content</h5>
         <p>This is some content inside the modal.</p> 
       </Modal>
     </>
